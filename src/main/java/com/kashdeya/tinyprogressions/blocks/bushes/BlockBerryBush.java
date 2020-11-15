@@ -29,7 +29,12 @@ public class BlockBerryBush extends BushBlock implements IPlantable {
 	public VoxelShape getShape(BlockState state, IBlockReader reader, BlockPos position, ISelectionContext context) {
 		return VoxelShapes.create(BERRY_AABB);
 	}
-	
+
+	@Override
+	public VoxelShape getCollisionShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		return VoxelShapes.empty();
+	}
+
 	@Override
 	public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable) 
 	{
